@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Castorice</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for About Page */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-section {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 2rem;
+        }
+
+        .about-section:last-child {
+            border-bottom: none;
+        }
+
+        .about-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <img src="img/cute.png" alt="Logo"
+                style="width: auto; height: 50px; border-radius: 50%; object-fit: cover;">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="#" class="active">About</a></li>
+            <li><a href="info.html">Info</a></li>
+        </ul>
+    </nav>
+
+    <main class="hero overview-hero">
+        <div class="glass-card overview-card">
+            <span class="page-indicator">02/02</span>
+            <h1>About Castorice</h1>
+
+            <div class="about-section" style="border-bottom: none; text-align: center; margin-bottom: 2rem;">
+                <img src="img/cto.png" alt="Castorice Art"
+                    style="max-width: 100%; height: auto; max-height: 300px; object-fit: contain; border-radius: 15px; filter: drop-shadow(0 0 10px rgba(106, 27, 154, 0.5));">
+            </div>
+
+            <div class="about-content">
+                <div class="about-section">
+                    <h2>Concept & Design</h2>
+                    <p>
+                        Castorice stands out in the Honkai: Star Rail universe with her distinct gothic lolita aesthetic
+                        combined with ethereal, almost ghostly elements. Her design reflects her connection to the
+                        'Garden of Recollection', balancing beauty and an unsettling aura of death and memory loss.
+                    </p>
+                    <p>
+                        The prominent use of lavender, skeletal motifs, and butterflies symbolizes transformation and
+                        the fleeting nature of life, which aligns perfectly with her lore as a Memokeeper.
+                    </p>
+                </div>
+
+                <div class="about-section">
+                    <div class="quote">
+                        "Memories are like petals in the wind... beautiful, fragile, and destined to scatter."
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h2>Role in Story</h2>
+                    <p>
+                        While much of her story is shrouded in mystery, Castorice plays a pivotal role in the
+                        deciding which truths are worth saving and which should be allowed to fade into oblivion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-footer" style="margin-top: 3rem; display: flex; gap: 1rem; justify-content: flex-start;">
+                <a href="info.html" class="cta-button">Read More</a>
+                <a href="index.html" class="cta-button"
+                    style="background: transparent; border: 1px solid rgba(255,255,255,0.3); box-shadow: none;">Back to
+                    Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <img src="img/34.png" alt="Star Rail" class="footer-logo">
+                <p>A fan-made tribute to Castorice, the Memokeeper from the Garden of Recollection.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="overview.html">Overview</a></li>
+                    <li><a href="about.html">About Character</a></li>
+                    <li><a href="info.html">Game Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://hsr.hoyoverse.com/" target="_blank">Official Website</a></li>
+                    <li><a href="https://www.hoyolab.com/" target="_blank">HoYoLAB</a></li>
+                    <li><a href="https://honkai-star-rail.fandom.com/" target="_blank">Wiki Fandom</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <p>Join the community and share your theories.</p>
+                <div style="margin-top: 1rem;" class="social-links">
+                    <a href="#">Discord</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Castorice Fan Site. Not affiliated with HoYoverse.</p>
+            <p>Game content and assets are trademarks of COGNOSPHERE PTE. LTD.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

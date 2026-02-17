@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --primary-color: #6a1b9a;
+    --secondary-color: #9c27b0;
+    --accent-color: #e1bee7;
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: var(--text-color);
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    min-height: 100vh;
+}
+
+/* Background Elements */
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 20s infinite alternate;
+}
+
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: purple;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: #4a148c;
+    animation-delay: -5s;
+}
+
+.blob-3 {
+    top: 20%;
+    right: 30%;
+    width: 30vw;
+    height: 30vw;
+    background: #7b1fa2;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(50px, 50px) rotate(20deg);
+    }
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    z-index: 10;
+    position: relative;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    min-height: calc(100vh - 100px);
+    /* Use min-height instead of fixed height */
+    padding: 0 5%;
+    position: relative;
+    align-items: center;
+    padding-bottom: 4rem;
+    /* Add padding at bottom to separate from footer */
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 4rem;
+    width: 45%;
+    box-shadow: var(--glass-shadow);
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+    animation: slideInLeft 1s ease forwards;
+}
+
+/* Decorative grid lines on card */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.glass-card::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.page-indicator {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #fff, #ce93d8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p.description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    max-width: 400px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(106, 27, 154, 0.6);
+}
+
+/* Bottom elements of card */
+.card-footer {
+    display: grid;
+    /* Use grid for better alignement control */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 equal columns */
+    gap: 1rem;
+    align-items: start;
+    /* Align to top */
+    margin-top: 3rem;
+    padding-top: 2rem;
+    /* Add breathing room */
+    width: 100%;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Separator line */
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.timeline span {
+    position: relative;
+}
+
+.timeline .active {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.progress-bar {
+    width: 60px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background: #fff;
+}
+
+.socials span {
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+}
+
+.artist span {
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.datetime {
+    text-align: right;
+    justify-self: end;
+    /* Push to the far right in grid */
+}
+
+.datetime .time {
+    display: block;
+    color: #fff;
+    margin-top: 0.2rem;
+}
+
+/* Character Image */
+.hero-image-container {
+    position: absolute;
+    right: 2%;
+    top: 40%;
+    transform: translateY(-50%);
+    height: 85vh;
+    /* Adjust height to fit viewport */
+    width: auto;
+    aspect-ratio: 4/3;
+    /* Force 4:3 aspect ratio */
+    z-index: 1;
+    /* pointer-events: none; Remove this to allow interaction if needed, though we are tracking mouse on window */
+    animation: floatHero 6s ease-in-out infinite;
+    /* Added floating animation */
+    border-radius: 20px;
+    /* Optional: adds nice corners */
+    overflow: hidden;
+    /* Ensures image stays within border radius */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Optional: adds depth */
+    /* background: radial-gradient(circle, #6a1b9a 0%, #311b92 100%); Removed */
+    /* border: 2px solid rgba(138, 43, 226, 0.5); Removed */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* mix-blend-mode: multiply; Removed */
+    /* filter: brightness(1.2) contrast(1.1); Removed */
+    /* Removed mask-image to show full 9:16 image clearly, or keep if user wants blend */
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+/* Placeholder for the image */
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, #4a148c, transparent 60%),
+        radial-gradient(circle at 30% 70%, #1a237e, transparent 60%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butterfly {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 50%;
+    filter: blur(5px);
+    animation: float 4s infinite ease-in-out;
+}
+
+@keyframes floatHero {
+
+    0%,
+    100% {
+        transform: translateY(-50%) translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-50%) translateY(-20px);
+    }
+}
+
+.hero-image-container {
+    animation: floatHero 6s ease-in-out infinite, fadeIn 2s ease forwards;
+}
+
+.hero-image {
+    transition: transform 0.1s ease-out;
+    /* Smooth movement for JS effect */
+    will-change: transform;
+}
+
+/* Update regular float animation to avoid name conflict if needed, or just keep as is */
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(50px, 50px) rotate(20deg);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Overview Page Specifics */
+.overview-hero {
+    justify-content: center;
+    height: auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    align-items: flex-start;
+    /* Align for long content */
+}
+
+.overview-card {
+    width: 80%;
+    animation: fadeIn 1s ease forwards;
+}
+
+.overview-card .description {
+    max-width: 100%;
+}
+
+/* Info Page Specifics */
+.info-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.info-row:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.info-label {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.info-value {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: right;
+    max-width: 60%;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column-reverse;
+        /* Put image on top for mobile */
+        justify-content: flex-end;
+        justify-content: flex-end;
+        padding-top: 80px;
+        padding-bottom: 4rem;
+        /* Increased padding */
+        height: auto;
+        min-height: 100vh;
+        gap: 2rem;
+    }
+
+    .glass-card {
+        width: 100%;
+        margin-bottom: 0;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        /* Stronger blur for readability */
+        height: auto;
+    }
+
+    .hero-image-container {
+        position: relative;
+        width: 80%;
+        /* Smaller width on mobile */
+        height: auto;
+        transform: none;
+        /* Remove centering transform */
+        top: 0;
+        right: 0;
+        aspect-ratio: 4/3;
+        margin: 0 auto;
+        /* Center horizontally */
+
+        /* Disable floating animation on mobile to prevent "goyang" */
+        animation: fadeIn 1s ease forwards;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Disable parallax tilt on mobile via CSS if possible, though JS check is better. 
+       We reset transform to ensure it stays still. */
+    .hero-image {
+        transform: none !important;
+    }
+
+    h1 {
+        font-size: 3rem;
+        /* Smaller title */
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .timeline,
+    .artist,
+    .socials {
+        font-size: 0.7rem;
+    }
+
+    .card-footer {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile Styles (Phones) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 5%;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding-top: 2rem;
+        flex-direction: column;
+        /* Changed to match potential desktop logical request */
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        height: auto;
+        /* max-height: 50vh; REMOVED to allow full 4:3 visibility */
+        aspect-ratio: 4/3;
+        margin-bottom: 0;
+        /* Remove bottom margin to sit flush if needed */
+        margin-top: auto;
+        /* Push to bottom of flex container */
+
+        /* Re-enable float animation */
+        animation: floatHero 6s ease-in-out infinite, fadeIn 2s ease forwards;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Override the disabled transform from 1024px query if needed, 
+       but we keep the JS check for no-parallax to avoid shaking. 
+       This CSS change just enables the 'float' animation part. */
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .card-footer {
+        display: flex;
+        /* Switch back to flex column for mobile */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 1.5rem;
+    }
+
+    .timeline {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .socials,
+    .artist,
+    .datetime {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .datetime {
+        text-align: left;
+    }
+
+    /* Overview Page specific mobile styles */
+    .overview-grid {
+        grid-template-columns: 1fr !important;
+        /* Force single column */
+    }
+
+    .info-card {
+        padding: 1rem !important;
+        /* Slightly less padding */
+    }
+
+    /* Info Page Mobile */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        /* Single column for better visibility */
+    }
+}
+
+/* Site Footer */
+.site-footer {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4rem 5% 2rem;
+    margin-top: auto;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.footer-column h3 {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s, padding-left 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 3rem 5% 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
